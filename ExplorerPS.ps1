@@ -84,7 +84,7 @@ function Check-ServiceHealth {
 }
 
 #check health for these computers
-Check-ServiceHealth -Services https://rbr-dev.nonprod.aws.casualty.cccis.com/isl-api/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/provider-api/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/dc-api/swagger/index123.html -Verbose
+Check-ServiceHealth -Services http://service/index123.html, http://service/index123456.html -Verbose
 
 
 #get help with example
@@ -164,10 +164,10 @@ function Test-MyNetwork {
 }
 
 #invoke method
-Test-MyNetwork -ComputerName ais-stage01, abc, ais-stage02, dmqdb1 #-ErrorAction Stop
+Test-MyNetwork -ComputerName stage01, abc, stage02, db1 #-ErrorAction Stop
 
 #Supply parameter from pipeline
-@('ais-stage01','ais-stage02') | Test-MyNetwork
+@('stage01','stage02') | Test-MyNetwork
 
 
 
@@ -255,9 +255,9 @@ Import-Module GetServiceHealth.psm1
 Get-Module
 
 #Invoke method from module
-Check-ServiceHealth -Services https://rbr-dev.nonprod.aws.casualty.cccis.com/isl-api1/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/provider-api/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/dc-api/swagger/index.html -LogPath c:\temp -Verbose
+Check-ServiceHealth -Services http://service/index123.html, http://service/index123456.html -LogPath c:\temp -Verbose
 #call method
-#Check-ServiceHealth -Services https://rbr-dev.nonprod.aws.casualty.cccis.com/isl-api1/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/provider-api/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/dc-api/swagger/index.html -LogPath c:\temp -Verbose
+#Check-ServiceHealth -Services http://service/index123.html, http://service/index123456.html -LogPath c:\temp -Verbose
 
 #To create Module Manifest
 New-ModuleManifest
@@ -276,7 +276,7 @@ Install-Module -Name PSScriptAnalyzer
 Invoke-ScriptAnalyzer -Path "C:\Program Files\WindowsPowerShell\Modules\CheckServiceHealth\CheckServiceHealth.psm1"
 
 #Key:
-$PSGalleryKey = "oy2mqaksnmx5ffymo27qk44usww77fvuzi4ur3plepqhqe"
+$PSGalleryKey = "xxxxxxxxxxxxxx"
 #Publish the Module (use PS7. For me, PS5 was throwing weird error)
 Publish-Module -Path "C:\Program Files\WindowsPowerShell\Modules\CheckServiceHealth\" -NuGetApiKey $PSGalleryKey -WhatIf -Verbose
 
