@@ -87,11 +87,11 @@ function check-LogFile
 function Send-Mail
 {
 
-    Send-MailMessage -From 'techiesclub2021@gmail.com' -To 'techiesclub2021' -Subject 'Test mail' -SmtpServer smtp.gmail.com -Credential (Get-Credential) -Port 587
+    Send-MailMessage -From 'techiesclub@gmail.com' -To 'techiesclub' -Subject 'Test mail' -SmtpServer smtp.gmail.com -Credential (Get-Credential) -Port 587
 }
 
 #Load functions
 #. .\CheckServiceHealth.ps1
 
 #call method
-#Check-ServiceHealth -Services https://rbr-dev.nonprod.aws.casualty.cccis.com/isl-api1/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/provider-api/swagger/index.html,https://rbr-dev.nonprod.aws.casualty.cccis.com/dc-api/swagger/index.html -LogPath c:\temp -Verbose
+#Check-ServiceHealth -Services https://service1/,https://service2,https://service3 -LogPath c:\temp -Verbose
